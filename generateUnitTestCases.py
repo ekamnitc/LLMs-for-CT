@@ -76,9 +76,9 @@ def process_programs(cpp_dir, test_dir, header_dir):
 # Main execution block
 if __name__ == "__main__":
     # Specify paths for C++ programs and test case output directories
-    cpp_directory = "/content/sample_data/Test-Programs"  # Replace with the path to your C++ programs
-    test_directory = "/content/sample_data/Test-Programs-UniTests"  # Replace with the path to save test cases
-    header_directory = "/content/sample_data/Test-Headers"  # Replace with the path to save header files
+    cpp_directory = "/Test-Programs"  # Replace with the path to your C++ programs
+    test_directory = "/Test-Programs-UniTests"  # Replace with the path to save test cases
+    header_directory = "/Test-Headers"  # Replace with the path to save header files
 
     # Call the function to process programs
     process_programs(cpp_directory, test_directory, header_directory)
