@@ -58,3 +58,38 @@ TestSummary.xlsx                            # Summary report
 Place your C++ programs (.cpp files) in the specified input directory (e.g., /CPP-Programs).
 Run the script. It will process all .cpp files, generate CFGs, and iteratively refine translations as needed.
 Check the TestSummary.xlsx file for a summary of the results.
+
+# Generating Unit Tests and Header Files for C++ Programs Using GPT-3.5-turbo
+The program - generateUnitTestCases.py automates the generation of unit tests and header files for C++ programs using the GPT-3.5-turbo language model. It processes a collection of C++ source files, generates corresponding unit tests in the Google Test framework, and organizes them in designated directories. Additionally, it extracts header content where applicable, saving it in separate header files.
+## Input Directory:
+The program scans a specified directory containing .cpp files.
+
+## Unit Test Generation:
+Each .cpp file is read, and its content is passed to GPT-3.5-turbo with a prompt requesting the generation of five unit tests.
+The response from GPT includes test cases formatted for the Google Test framework.
+
+## Header and Source Separation:
+The program parses the generated output and separates:
+Header-related content (e.g., #include statements or .h references).
+Unit test source code for inclusion in test files.
+
+## Output Files:
+Unit Test Files: Saved as <original_file_name>_test.cpp in the designated test directory.
+Header Files: Saved as <original_file_name>.h in the designated header directory (if applicable).
+
+# Test Execution and CA@1 Calculation Program
+This Python script automates the process of evaluating the correctness of translated C programs compared to their original C++ implementations. It uses unit tests to determine whether both the original and translated programs meet the same functional requirements, and calculates the CA@1 metric.
+## Inputs
+C++ Programs Directory (cpp_dir): Path to the directory containing original C++ source files.
+
+Translated C Programs Directory (c_dir): Path to the directory containing the translated C source files.
+
+Unit Tests Directory (test_dir): Path to the directory containing unit test files for the C++ programs.
+## Outputs
+The program prints: 
+
+Success or failure of unit tests for each program.
+
+Compilation errors or runtime test failures.
+
+Final CA@1 score and a breakdown of passed and total programs.
